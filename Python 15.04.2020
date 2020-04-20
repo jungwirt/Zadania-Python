@@ -1,0 +1,10 @@
+def objetosc_i_pole_pow():
+    a=float(input("pierwszy bok podstawy: "))
+    b=float(input("drugi bok podstawy: "))
+    h=float(input("wysokosc prostopdaloscianu: "))
+    obj=a*b*h
+    pole=(2*a*b)+(2*a*h)+(2*b*h)
+    print("objetosc wynosi: ", obj,"a pole powierzchni: ", pole, sep="\n")
+
+
+objetosc_i_pole_pow()
