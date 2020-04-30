@@ -1,0 +1,7 @@
+n=int(input())
+fib=[0, 1]
+for i in range(n-2):
+ fib.append(fib[i+1] + fib[i])
+print(fib)
+
+#wyjaśnienie - w pierwszej linijce pobieramy od użytkownika dowolną liczbę naturalną ( w domyśle większą lub równą 2). W kolejnej linii tworzymy listę będącą ciągiem fibbonaciego o dwóch pierwszych wyrazach. W kolejnej inicjujemy pętle for do n-2 elementów aby ostatecznie w tablicy (pamiętając o tym że zaczynamy numeracje od 0) znalzało się n elementów. Następnie do listy fib dodajemy kolejny element będący sumą dwóch poprzednich elementów, robimy tak aż osiągnięta zostanie podana wartość n. Ostatecznie na ekran konsoli zostaje wypisana lista z elementami w postaci n pierwszych elementów ciągu fibbonaciego.
