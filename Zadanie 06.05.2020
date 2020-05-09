@@ -1,0 +1,23 @@
+from math import factorial #importujemy tylko funkcje silni
+
+def newton(a, b):  #definiujemy funkcje wyliczającą dwumian newtona
+  wynik=factorial(a)/(factorial(b)*factorial(a-b))
+  return wynik
+
+def losowanie(a, b, c): #definiujemy funkcje wyliczającą prawdopodobieństwo zadanego zdarzenia
+       if c==1 : 
+        print("Prawdopodobieństwo takiego zdarzenia wynosi 1") #gdy będziemy losować tylko jedną kulę to prawdopodobieństwo zawsze będzie wynosić 1 bo będzie tylko jeden wylosowany kolor
+       elif c>a and c>b :
+        print("Prawdopodobieństwo takiego zdarzenia wynosi 0") #jeśli będziemy chcieli wylosować np. 4 kule o tym samym kolorze, ale wcześniej ustaliliśmy, że liczba czarnych kul wynosi np. 3, a liczba białych np. 2 to prawdop. wyniesie 0 bo jest za mało kul w jednym kolorze aby wystarczyło w losowaniu
+       elif c>a and c<=b :
+        print("Prawdopodobieństwo wynosi: ", newton(b, c)/newton(a+b, c)) #jeśli kul białych jest mniej niż ilość kul, które chcemy losować to we wzorze na prawdopodobieństwo traktujemy tak jakby dwumian newtona z a po c był równy 0 
+       elif a>=c and c>b :
+        print("Prawdopodobieństwo wynosi: ", newton(a, c) / newton(a + b, c)) #jeśli kul czarnych jest mniej niż ilość kul, które chcemy losować to we wzorze na prawdopodobieństwo traktujemy tak jakby dwumian newtona z b po c był równy 0  
+       else :
+        print("Prawdopodobieństwo wynosi: ", newton(a, c) + newton(b, c) / newton(a + b, c)) #wyliczamy prawdopodobieństwo gdzie 1/ newton(a+b, c) to prawdopodobieństwo wylosowania c kul ze zbioru a+b kul natomiast newton(a, c) + newton(b, c) to zdarzenie polegające na wylosowaniu c kul o takim samym kolorze ze zbioru a+b
+
+
+n=int(input("Ile kul białych: "))
+m=int(input("Ile kul czarnych: " ))
+k=int(input("Ile kul będzie losowanych: " ))
+losowanie(n, m, k)
